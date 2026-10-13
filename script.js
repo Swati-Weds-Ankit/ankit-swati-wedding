@@ -9,7 +9,7 @@
 
   const initial = document.createElement("span");
   initial.className = "bride-initial";
-  initial.textContent = brideName.charAt(0);
+  initial.textContent = brideName.charAt(0).toUpperCase()
 
   el.append(initial, document.createTextNode(brideName.slice(1)));
 });
