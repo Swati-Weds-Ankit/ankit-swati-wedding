@@ -313,3 +313,24 @@ footer [data-name="bride"] {
   font-style: normal;
   letter-spacing: 0.025em;
 }
+/* Matching elegant cursive font for both names */
+.hero h1 span[data-name="groom"],
+.hero h1 span[data-name="bride"],
+.names-card strong[data-name="groom"],
+.names-card strong[data-name="bride"],
+.signature span[data-name="groom"],
+.signature span[data-name="bride"],
+footer p span[data-name="groom"],
+footer p span[data-name="bride"] {
+  font-family: "Parisienne", cursive !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.names-card strong[data-name="groom"],
+.names-card strong[data-name="bride"] {
+  font-size: 42px !important;
+  line-height: 1.5;
+}
