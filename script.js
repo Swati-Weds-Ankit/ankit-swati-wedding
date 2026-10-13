@@ -3,7 +3,16 @@
   const $ = (selector) => document.querySelector(selector);
   const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   document.querySelectorAll('[data-name="groom"]').forEach(el => el.textContent = cfg.groom || "Ankit");
-  document.querySelectorAll('[data-name="bride"]').forEach(el => el.textContent = cfg.bride || "Swati");
+  document.querySelectorAll('[data-name="bride"]').forEach(el => {
+  const brideName = cfg.bride || "Swati";
+  el.textContent = "";
+
+  const initial = document.createElement("span");
+  initial.className = "bride-initial";
+  initial.textContent = brideName.charAt(0);
+
+  el.append(initial, document.createTextNode(brideName.slice(1)));
+});
   $("#heroDate").textContent = cfg.dateLabel || "Wedding day";
   $("#venueName").textContent = cfg.venueName || "Venue to be announced";
   $("#venueAddress").textContent = cfg.venueAddress || "Venue details coming soon";
