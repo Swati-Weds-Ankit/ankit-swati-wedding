@@ -3,7 +3,16 @@
   const $ = (selector) => document.querySelector(selector);
   const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   document.querySelectorAll('[data-name="groom"]').forEach(el => el.textContent = cfg.groom || "Ankit");
-  document.querySelectorAll('[data-name="bride"]').forEach(el => {
+document.querySelectorAll('[data-name="bride"]').forEach(el => {
+  const brideName = cfg.bride || "Swati";
+  el.textContent = "";
+
+  const initial = document.createElement("span");
+  initial.className = "bride-initial";
+  initial.textContent = brideName.charAt(0).toUpperCase();
+
+  el.append(initial, document.createTextNode(brideName.slice(1)));
+});
   const brideName = cfg.bride || "Swati";
   el.textContent = "";
 
