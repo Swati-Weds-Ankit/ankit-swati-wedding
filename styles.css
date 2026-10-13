@@ -263,3 +263,28 @@ p{font-family:"Cormorant Garamond",Georgia,serif}
   opacity: 1;
   visibility: visible;
 }
+/* Smooth transition from Ganesha blessing to the invitation */
+html,
+body {
+  background-color: #2b111b;
+}
+
+.ganesha-intro {
+  background-color: #2b111b !important;
+  overflow: hidden;
+}
+
+.ganesha-intro.is-done {
+  background-color: #2b111b !important;
+}
+
+.ganesha-intro.is-done .ganesha-blessing {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ganesha-intro.is-done .ganesha-blessing {
+    transition: none;
+  }
+}
