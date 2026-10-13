@@ -54,11 +54,31 @@
   tick(); setInterval(tick, 1000);
 
   const music = $("#weddingMusic"), musicToggle = $("#musicToggle"), musicLabel = $("#musicLabel");
+  function updateMusicButton(isPlaying) {
+    musicLabel.textContent = isPlaying ? "Pause music" : "Play music";
+    musicToggle.setAttribute("aria-label", isPlaying ? "Pause background music" : "Play background music");
+  }
+  async function tryStartMusic() {
+    // Browsers generally block audible autoplay until a visitor interacts with the page.
+    // Call this directly from the gate button's click handler to use that permitted gesture.
+    try {
+      music.volume = 0.65;
+      await music.play();
+      updateMusicButton(true);
+      return true;
+    } catch {
+      updateMusicButton(false);
+      return false;
+    }
+  }
   musicToggle.addEventListener("click", async () => {
     if (music.paused) {
-      try { await music.play(); musicLabel.textContent = "Pause music"; musicToggle.setAttribute("aria-label", "Pause background music"); }
-      catch { musicLabel.textContent = "Add your MP3"; alert("The music file could not be played. Check that assets/music/wedding-song.mp3.mp3 exists in GitHub and is a valid MP3 file."); }
-    } else { music.pause(); musicLabel.textContent = "Play music"; musicToggle.setAttribute("aria-label", "Play background music"); }
+      const playing = await tryStartMusic();
+      if (!playing) alert("The music could not start. Check that assets/music/wedding-song.mp3.mp3 exists in GitHub and is a valid MP3 file.");
+    } else {
+      music.pause();
+      updateMusicButton(false);
+    }
   });
 
   // Share the invitation link through WhatsApp without needing a recipient number.
@@ -94,10 +114,23 @@
 
   // The invitation opens only after a guest taps the cover button.
   const openButton = $("#openInvitation");
+  const topNav = document.querySelector(".top-nav");
   const navLinks = document.querySelectorAll('.top-nav a[href^="#"]');
+  // Hide navigation both visually and from keyboard/screen-reader navigation until
+  // the guest deliberately opens the invitation cover.
+  if (topNav && document.body.classList.contains("invitation-closed")) {
+    topNav.style.display = "none";
+    topNav.setAttribute("aria-hidden", "true");
+    topNav.querySelectorAll("a").forEach(link => link.setAttribute("tabindex", "-1"));
+  }
   function openInvitation(targetSelector = "#invitation") {
     if (document.body.classList.contains("invitation-closed")) {
       document.body.classList.remove("invitation-closed");
+      if (topNav) {
+        topNav.style.display = "";
+        topNav.setAttribute("aria-hidden", "false");
+        topNav.querySelectorAll("a").forEach(link => link.removeAttribute("tabindex"));
+      }
       openButton.setAttribute("aria-expanded", "true");
       document.body.style.overflow = "";
       // Give the page a moment to reveal its sections before scrolling.
@@ -119,6 +152,32 @@
     openInvitation(link.getAttribute("href"));
   }));
   document.body.style.overflow = "hidden";
+
+
+  // Opening sequence: the large gates open first, then the Ganesha blessing appears,
+  // and finally the cover is revealed. The cover's navigation remains hidden until
+  // the guest taps the separate Open Invitation button.
+  const ganeshaIntro = $("#ganeshaIntro");
+  const openGatesButton = $("#openGates");
+  if (ganeshaIntro && openGatesButton) {
+    let introStarted = false;
+    const startSacredOpening = () => {
+      if (introStarted || !ganeshaIntro.isConnected) return;
+      introStarted = true;
+      // The tap is the browser-approved user gesture for starting audible music.
+      // Do not block the visual sequence if the music file is missing or blocked.
+      tryStartMusic();
+      ganeshaIntro.classList.add("is-opening");
+      openGatesButton.disabled = true;
+      openGatesButton.textContent = "Opening the gates…";
+      window.setTimeout(() => ganeshaIntro.classList.add("show-ganesha"), 1500);
+      window.setTimeout(() => ganeshaIntro.classList.add("is-done"), 4100);
+      window.setTimeout(() => ganeshaIntro.remove(), 5000);
+    };
+    openGatesButton.addEventListener("click", startSacredOpening);
+    // Wait for a real tap: it opens the gate, shows the Ganesha blessing, and
+    // starts music when the browser permits it. No hidden auto-opening timer.
+  }
 
   // Continuous shower of flower petals and little leaves across the whole page.
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
