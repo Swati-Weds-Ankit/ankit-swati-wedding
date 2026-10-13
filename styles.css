@@ -363,3 +363,15 @@ footer p span[data-name="bride"] {
 html, body {
   overflow-x: hidden;
 }
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+/* Decorative initial S for Swati */
+.hero h1 span[data-name="bride"]::first-letter,
+.names-card strong[data-name="bride"]::first-letter,
+.signature span[data-name="bride"]::first-letter,
+footer span[data-name="bride"]::first-letter {
+  font-family: "Pinyon Script", cursive !important;
+  font-size: 1.35em;
+  font-weight: 400;
+  font-style: normal;
+}
