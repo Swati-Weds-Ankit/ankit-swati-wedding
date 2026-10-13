@@ -386,3 +386,14 @@ footer span[data-name="bride"]::first-letter {
   color: inherit;
   vertical-align: baseline;
 }
+/* Decorative capital S throughout the website */
+.bride-initial {
+  font-family: "Great Vibes", cursive !important;
+  font-size: inherit !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: inherit;
+  color: inherit;
+  display: inline-block;
+  vertical-align: baseline;
+}
