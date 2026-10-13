@@ -185,12 +185,19 @@
     const flowers = ["✿", "❀", "✽", "❁", "✾"];
     function makeFallingPiece() {
       const piece = document.createElement("span");
-      const isLeaf = Math.random() < 0.42;
-      piece.className = "petal " + (isLeaf ? "leaf" : "flower");
-      piece.textContent = isLeaf ? (Math.random() < 0.5 ? "❧" : "🍃") : flowers[Math.floor(Math.random() * flowers.length)];
+      const kindRoll = Math.random();
+      const kind = kindRoll < 0.28 ? "leaf" : (kindRoll < 0.64 ? "rose-petal" : "flower");
+      piece.className = "petal " + kind;
+      piece.textContent = kind === "leaf"
+        ? (Math.random() < 0.5 ? "❧" : "🍃")
+        : (kind === "flower" ? flowers[Math.floor(Math.random() * flowers.length)] : "");
       piece.style.left = (Math.random() * 100) + "%";
-      piece.style.setProperty("--drift", ((Math.random() * 240) - 120) + "px");
+      piece.style.setProperty("--drift", ((Math.random() * 260) - 130) + "px");
       piece.style.fontSize = (12 + Math.random() * 16) + "px";
+      if (kind === "rose-petal") {
+        piece.style.width = (9 + Math.random() * 10) + "px";
+        piece.style.height = (14 + Math.random() * 12) + "px";
+      }
       piece.style.animationDuration = (7 + Math.random() * 8) + "s";
       piece.style.opacity = (0.45 + Math.random() * 0.45).toFixed(2);
       petalLayer.appendChild(piece);
