@@ -11,11 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="invitation-closed">
   <div class="petals" aria-hidden="true"></div>
   <div class="music-control">
     <button id="musicToggle" class="music-button" aria-label="Play background music" title="Play / pause music">♫ <span id="musicLabel">Play music</span></button>
-    <audio id="weddingMusic" loop preload="none"><source src="assets/music/replace-with-your-song.mp3" type="audio/mpeg"></audio>
+    <audio id="weddingMusic" loop preload="none"><source src="assets/music/wedding-song.mp3.mp3" type="audio/mpeg"></audio>
   </div>
 
   <header class="hero" id="home">
@@ -31,7 +31,7 @@
       <div class="ornament"><span></span> ❦ <span></span></div>
       <p class="hero-copy">invite you to celebrate the beginning of our forever</p>
       <p class="hero-date" id="heroDate">Our wedding day</p>
-      <a class="gold-button" href="#invitation">Open Invitation <span>↓</span></a>
+      <a class="gold-button" id="openInvitation" href="#invitation" aria-expanded="false">Open Invitation <span>↓</span></a>
     </div>
     <div class="scroll-note">SCROLL TO DISCOVER</div>
   </header>
@@ -74,7 +74,7 @@
       <h2>Wedding <i>celebrations</i></h2>
       <p class="section-subtitle">A few beautiful moments, a lifetime of memories.</p>
       <div id="eventGrid" class="event-grid"></div>
-      <p class="edit-hint">Event dates and venues are sample details. Update them in <code>config.js</code>.</p>
+      <p class="edit-hint">Haldi, Mehendi and reception timings are still to be confirmed. Edit <code>config.js</code> when details are final.</p>
     </section>
 
     <section class="quote-band">
@@ -102,15 +102,16 @@
       <p class="eyebrow">YOUR PRESENCE IS OUR PRESENT</p>
       <h2>We hope to <i>see you there</i></h2>
       <p>Kindly let us know if you’ll be joining our celebration.</p>
+      <button class="gold-button" id="shareInvitation" type="button">Share invitation on WhatsApp ↗</button>
       <form id="rsvpForm">
         <label>Your name<input name="guestName" required placeholder="Enter your name"></label>
         <label>Will you attend?
           <select name="attendance" required><option value="">Choose an option</option><option>Joyfully accepts</option><option>Regretfully declines</option></select>
         </label>
         <label>A little message (optional)<textarea name="message" rows="3" placeholder="Share your wishes for us"></textarea></label>
-        <button class="gold-button" type="submit">Send your response ♡</button>
+        <button class="gold-button" type="submit">Confirm via WhatsApp ♡</button>
       </form>
-      <p class="form-note" id="formNote">Demo RSVP: responses are shown on this device only. Connect a form service if you need to collect guest replies online.</p>
+      <p class="form-note" id="formNote">RSVP replies open WhatsApp. Add your WhatsApp number in <code>config.js</code> before sharing the invitation.</p>
     </section>
   </main>
 
