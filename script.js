@@ -170,9 +170,9 @@
       ganeshaIntro.classList.add("is-opening");
       openGatesButton.disabled = true;
       openGatesButton.textContent = "Opening the gates…";
-      window.setTimeout(() => ganeshaIntro.classList.add("show-ganesha"), 1500);
-      window.setTimeout(() => ganeshaIntro.classList.add("is-done"), 4100);
-      window.setTimeout(() => ganeshaIntro.remove(), 5000);
+      window.setTimeout(() => ganeshaIntro.classList.add("show-ganesha"), 3500);
+      window.setTimeout(() => ganeshaIntro.classList.add("is-done"), 10000);
+      window.setTimeout(() => ganeshaIntro.remove(), 11000);
     };
     openGatesButton.addEventListener("click", startSacredOpening);
     // Wait for a real tap: it opens the gate, shows the Ganesha blessing, and
