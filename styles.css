@@ -288,3 +288,28 @@ body {
     transition: none;
   }
 }
+/* Slower, luxurious gate opening */
+.gate-door {
+  transition: transform 4s cubic-bezier(.65, 0, .25, 1) !important;
+}
+
+/* Smooth Ganesha blessing appearance */
+.ganesha-blessing {
+  transition:
+    opacity 2s ease,
+    transform 2.5s cubic-bezier(.2, .8, .2, 1) !important;
+}
+
+.ganesha-intro.show-ganesha .ganesha-blessing {
+  animation-duration: 2.5s !important;
+}
+
+/* Make Swati's name clearer */
+.hero h1 [data-name="bride"],
+.names-card strong[data-name="bride"],
+.signature [data-name="bride"],
+footer [data-name="bride"] {
+  font-family: "Cinzel", Georgia, serif !important;
+  font-style: normal;
+  letter-spacing: 0.025em;
+}
