@@ -73,3 +73,177 @@ footer{background:linear-gradient(135deg,#251027,#4b1738,#173b3c)}
 @keyframes logoArrive{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:520px){.gate-monogram{width:min(195px,58vw);max-height:118px;margin-bottom:5px}.gate-welcome{padding:12px}.gate-welcome h2{font-size:clamp(36px,9vw,56px)}.section-monogram{width:min(145px,42vw);max-height:92px;margin-bottom:14px}.footer-logo-image{width:min(180px,55vw)}}
 @media(prefers-reduced-motion:reduce){.gate-monogram{animation:none}}
+
+
+/* GRAND REALISTIC GATE + BLESSING SCENE */
+.ganesha-intro{
+  background:
+    linear-gradient(180deg,rgba(31,8,18,.28),rgba(37,10,20,.58)),
+    url("assets/images/ganesha-couple.jpg") center/cover no-repeat,
+    #2b111b;
+}
+.gate-scene{background:#2b111b}
+.gate-door{
+  background-image:url("assets/images/royal-gate.jpg");
+  background-repeat:no-repeat;
+  background-size:200% 100%;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:hidden;
+}
+.gate-left{background-position:left center}
+.gate-right{background-position:right center}
+.gate-door::before,.gate-door::after{display:none}
+.gate-welcome{
+  background:linear-gradient(145deg,rgba(38,9,23,.78),rgba(63,18,42,.58));
+  border:1px solid rgba(239,198,111,.65);
+  outline:1px solid rgba(239,198,111,.25);
+  outline-offset:7px;
+  box-shadow:0 20px 70px rgba(0,0,0,.3);
+  backdrop-filter:blur(3px);
+  border-radius:4px;
+}
+.gate-monogram{width:min(225px,58vw);max-height:125px;object-fit:contain}
+.gate-kicker,.ganesha-mantra{font-family:"Cinzel Decorative","Cinzel",serif}
+.gate-welcome h2{font-family:"Cinzel Decorative","Cormorant Garamond",serif;font-size:clamp(32px,6vw,60px);font-weight:400;letter-spacing:.035em}
+.gate-open-button{font-family:"Cinzel Decorative","Cormorant Garamond",serif;letter-spacing:.06em}
+
+/* The couple's prayer before Lord Ganesha is a full-screen interlude after the gates open. */
+.ganesha-blessing{
+  position:absolute;
+  inset:0;
+  top:0;left:0;
+  width:100%;height:100%;
+  display:block;
+  overflow:hidden;
+  transform:translateY(3%) scale(1.02);
+  background:#2c101a;
+  text-align:center;
+}
+.ganesha-blessing::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(34,8,19,.64),transparent 34%,transparent 64%,rgba(34,8,19,.68));
+  pointer-events:none;
+}
+.ganesha-scene-image{
+  position:absolute;inset:0;
+  display:block;width:100%;height:100%;
+  object-fit:cover;object-position:center 52%;
+  animation:ganeshaPhotoReveal 1.4s ease both;
+}
+.ganesha-mantra{
+  position:absolute;z-index:2;top:7%;left:5%;right:5%;
+  color:#ffe4a4;
+  font-size:clamp(17px,3vw,29px);
+  letter-spacing:.08em;
+  text-shadow:0 2px 12px rgba(0,0,0,.65);
+}
+.ganesha-welcome{
+  position:absolute;z-index:2;left:5%;right:5%;bottom:8%;
+  font-family:"Parisienne","Great Vibes",cursive;
+  font-size:clamp(27px,5vw,48px);
+  color:#fff1d3;
+  text-shadow:0 2px 14px rgba(0,0,0,.75);
+}
+.ganesha-intro.show-ganesha .ganesha-blessing{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  animation:blessingSceneArrive 1.15s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes blessingSceneArrive{
+  from{opacity:0;filter:blur(8px);transform:translateY(3%) scale(1.04)}
+  to{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}
+}
+@keyframes ganeshaPhotoReveal{from{transform:scale(1.07)}to{transform:scale(1)}}
+
+/* Romantic invitation typography inspired by the supplied wedding-font reference. */
+:root{
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Poppins",Arial,sans-serif;
+}
+body{font-family:"Cormorant Garamond",Georgia,serif;font-size:18px}
+p{font-family:"Cormorant Garamond",Georgia,serif}
+.top-nav,.eyebrow,.gate-kicker,.gate-open-button,.gold-button,.hero-date,
+.scroll-note,.countdown span,.event-date,.event-venue,.edit-hint,
+#rsvpForm label,.music-button{
+  font-family:"Cinzel","Poppins",serif;
+}
+.top-nav{font-size:11px;letter-spacing:.16em}
+.hero h1{
+  font-family:"Parisienne","Great Vibes",cursive;
+  font-weight:700;
+  font-size:clamp(76px,14vw,154px);
+  letter-spacing:0;
+  line-height:1;
+  gap:.13em;
+  text-shadow:0 4px 24px rgba(0,0,0,.35),0 0 1px #fff4db;
+}
+.hero h1 span{
+  font-family:"Parisienne","Great Vibes",cursive;
+  font-weight:700;
+  -webkit-text-stroke:.65px currentColor;
+  text-shadow:0 4px 24px rgba(0,0,0,.35),0 0 1px #fff4db;
+}
+.hero h1 em{
+  font-family:"Great Vibes","Parisienne",cursive;
+  font-weight:400;
+  font-size:.58em;
+  -webkit-text-stroke:0;
+}
+.script-line,.hero-copy,.quote-band p,.signature,
+.names-card strong,.story-copy h2 i,.section h2 i,
+.countdown-section h2 i,.venue-section h2 i{
+  font-family:"Parisienne","Great Vibes",cursive;
+  font-style:normal;
+}
+.script-line{font-size:clamp(31px,5vw,46px)}
+.hero-copy{font-size:clamp(30px,4.5vw,47px);line-height:1.12}
+.section h2,.countdown-section h2,.venue-section h2{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  letter-spacing:.015em;
+}
+.section h2 i,.countdown-section h2 i,.venue-section h2 i{
+  font-size:1.12em;
+  font-weight:600;
+}
+.names-card strong{
+  font-size:clamp(42px,7vw,58px);
+  font-weight:700;
+  line-height:1.1;
+  -webkit-text-stroke:.25px currentColor;
+}
+.signature{font-size:clamp(36px,6vw,54px);font-weight:700}
+.signature em{font-family:"Great Vibes",cursive;color:var(--gold)}
+.intro-text,.story-copy p:not(.eyebrow),.section-subtitle,
+.rsvp p,.event-card p,.venue-section>p{
+  font-size:clamp(18px,2vw,21px);
+  line-height:1.55;
+}
+.event-card h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;font-weight:600}
+.countdown strong{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600}
+.footer-logo-image{max-width:230px}
+.section-monogram{max-width:160px}
+.petal.rose-petal{
+  border-radius:80% 8% 75% 12%;
+  background:linear-gradient(135deg,#ffd0d8 0%,#ed7b91 40%,#a91f45 100%);
+  box-shadow:inset -2px -2px 3px rgba(92,8,34,.25),0 2px 5px rgba(34,7,20,.16);
+  transform-origin:center;
+}
+.petal.leaf{filter:drop-shadow(0 1px 3px rgba(25,65,35,.24))}
+.petals{z-index:1001}
+@media(max-width:520px){
+  .gate-welcome{width:82%;padding:20px 14px}
+  .gate-monogram{width:min(190px,55vw);max-height:110px}
+  .ganesha-scene-image{object-position:center center}
+  .ganesha-mantra{top:8%;font-size:17px}
+  .ganesha-welcome{bottom:7%;font-size:30px}
+  .hero h1{font-size:clamp(66px,17vw,98px);gap:.08em}
+  .hero-copy{font-size:29px}
+  .section h2,.countdown-section h2,.venue-section h2{font-size:clamp(38px,10vw,58px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .ganesha-scene-image,.ganesha-intro.show-ganesha .ganesha-blessing{animation:none!important}
+}
