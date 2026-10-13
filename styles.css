@@ -334,3 +334,32 @@ footer p span[data-name="bride"] {
   font-size: 42px !important;
   line-height: 1.5;
 }
+.ganesha-intro {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 100dvh !important;
+  overflow: hidden !important;
+  z-index: 99999 !important;
+  background-color: #2b111b !important;
+  box-sizing: border-box !important;
+}
+
+.gate-scene {
+  position: absolute !important;
+  inset: 0 !important;
+  height: 100% !important;
+}
+
+.ganesha-blessing {
+  position: absolute !important;
+  inset: 0 !important;
+  min-height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+html, body {
+  overflow-x: hidden;
+}
