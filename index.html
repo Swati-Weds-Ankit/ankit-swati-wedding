@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#32151e">
+  <meta name="description" content="Ankit & Swati's wedding invitation">
+  <title>Ankit & Swati — Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+  <div class="music-control">
+    <button id="musicToggle" class="music-button" aria-label="Play background music" title="Play / pause music">♫ <span id="musicLabel">Play music</span></button>
+    <audio id="weddingMusic" loop preload="none"><source src="assets/music/replace-with-your-song.mp3" type="audio/mpeg"></audio>
+  </div>
+
+  <header class="hero" id="home">
+    <div class="hero-shade"></div>
+    <nav class="top-nav">
+      <a href="#home" class="monogram">A <span>&</span> S</a>
+      <div><a href="#story">Our Story</a><a href="#events">Events</a><a href="#gallery">Gallery</a></div>
+    </nav>
+    <div class="hero-content reveal">
+      <p class="eyebrow">WITH THE BLESSINGS OF OUR FAMILIES</p>
+      <p class="script-line">Together with our families</p>
+      <h1><span data-name="groom">Ankit</span><em>&</em><span data-name="bride">Swati</span></h1>
+      <div class="ornament"><span></span> ❦ <span></span></div>
+      <p class="hero-copy">invite you to celebrate the beginning of our forever</p>
+      <p class="hero-date" id="heroDate">Our wedding day</p>
+      <a class="gold-button" href="#invitation">Open Invitation <span>↓</span></a>
+    </div>
+    <div class="scroll-note">SCROLL TO DISCOVER</div>
+  </header>
+
+  <main>
+    <section class="intro section" id="invitation">
+      <p class="eyebrow">A NEW CHAPTER BEGINS</p>
+      <div class="section-flower">❦</div>
+      <h2>Two hearts, <i>one beautiful journey.</i></h2>
+      <p class="intro-text">With joy in our hearts and the love of our families, we invite you to be part of our special day. Your presence will make our celebration complete.</p>
+      <div class="names-card"><span>THE GROOM</span><strong data-name="groom">Ankit</strong><small>with</small><strong data-name="bride">Swati</strong><span>THE BRIDE</span></div>
+    </section>
+
+    <section class="countdown-section">
+      <div class="countdown-inner reveal">
+        <p class="eyebrow light">COUNTING DOWN TO FOREVER</p>
+        <h2>Until we say <i>“I do”</i></h2>
+        <div class="countdown" aria-label="Countdown to wedding">
+          <div><strong id="days">00</strong><span>Days</span></div><b>:</b>
+          <div><strong id="hours">00</strong><span>Hours</span></div><b>:</b>
+          <div><strong id="minutes">00</strong><span>Minutes</span></div><b>:</b>
+          <div><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+        <p class="countdown-note" id="countdownNote">A beautiful day is on its way.</p>
+      </div>
+    </section>
+
+    <section class="section story" id="story">
+      <div class="story-photo reveal" role="img" aria-label="Romantic wedding couple photo"></div>
+      <div class="story-copy reveal">
+        <p class="eyebrow">OUR STORY</p>
+        <h2>Written in the stars,<br><i>sealed with love.</i></h2>
+        <p>Some journeys are even more beautiful when shared. We are grateful for the love, laughter, and memories that brought us here—and we can’t wait to begin this next chapter surrounded by the people who mean the most to us.</p>
+        <div class="signature"><span data-name="groom">Ankit</span> <em>&</em> <span data-name="bride">Swati</span></div>
+      </div>
+    </section>
+
+    <section class="events section" id="events">
+      <p class="eyebrow">SAVE THE DATE</p>
+      <h2>Wedding <i>celebrations</i></h2>
+      <p class="section-subtitle">A few beautiful moments, a lifetime of memories.</p>
+      <div id="eventGrid" class="event-grid"></div>
+      <p class="edit-hint">Event dates and venues are sample details. Update them in <code>config.js</code>.</p>
+    </section>
+
+    <section class="quote-band">
+      <div class="quote-mark">“</div>
+      <p>And so, together, they built a life they loved.</p>
+      <span>— OUR FOREVER STARTS HERE —</span>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+      <p class="eyebrow">LITTLE MOMENTS, BIG LOVE</p>
+      <h2>Our <i>gallery</i></h2>
+      <p class="section-subtitle">Replace these sample photos with your own favourite memories.</p>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <section class="venue-section section" id="venue">
+      <p class="eyebrow light">COME CELEBRATE WITH US</p>
+      <h2>Be there for our <i>big day</i></h2>
+      <p class="venue-name" id="venueName">Wedding venue to be announced</p>
+      <p id="venueAddress">Please check back for venue details.</p>
+      <a class="gold-button" id="mapLink" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions ↗</a>
+    </section>
+
+    <section class="rsvp section" id="rsvp">
+      <p class="eyebrow">YOUR PRESENCE IS OUR PRESENT</p>
+      <h2>We hope to <i>see you there</i></h2>
+      <p>Kindly let us know if you’ll be joining our celebration.</p>
+      <form id="rsvpForm">
+        <label>Your name<input name="guestName" required placeholder="Enter your name"></label>
+        <label>Will you attend?
+          <select name="attendance" required><option value="">Choose an option</option><option>Joyfully accepts</option><option>Regretfully declines</option></select>
+        </label>
+        <label>A little message (optional)<textarea name="message" rows="3" placeholder="Share your wishes for us"></textarea></label>
+        <button class="gold-button" type="submit">Send your response ♡</button>
+      </form>
+      <p class="form-note" id="formNote">Demo RSVP: responses are shown on this device only. Connect a form service if you need to collect guest replies online.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-monogram">A <span>&</span> S</div>
+    <p>With love, <span data-name="groom">Ankit</span> & <span data-name="bride">Swati</span></p>
+    <small>MADE WITH LOVE · <span id="footerYear"></span></small>
+    <a href="#home" class="back-top">Back to top ↑</a>
+  </footer>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
