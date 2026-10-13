@@ -397,3 +397,20 @@ footer span[data-name="bride"]::first-letter {
   display: inline-block;
   vertical-align: baseline;
 }
+/* Fix the decorative S in Swati everywhere */
+.bride-initial {
+  font-family: "Great Vibes", cursive !important;
+  font-size: inherit !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: normal !important;
+  line-height: inherit;
+  color: inherit;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.names-card .bride-initial {
+  font-size: inherit !important;
+  letter-spacing: normal !important;
+}
