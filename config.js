@@ -14,7 +14,7 @@ window.WEDDING_CONFIG = {
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Deepak%20Line%20Hotel%2C%20Jaiprakash%20Nagar%2C%20Muzaffarpur%2C%20Bihar",
   // IMPORTANT: Replace this with the groom/bride WhatsApp number including country code, digits only.
   // India example format: 91 followed by the 10-digit mobile number. Do not include +, spaces, or dashes.
-  whatsappNumber: "91XXXXXXXXXX",
+  whatsappNumber: "917217602570",
   events: [
     { icon: "✧", name: "Haldi", date: "Date to be announced", time: "Time to be announced", venue: "Deepak Line Hotel / venue details to confirm", note: "A golden morning filled with blessings and laughter." },
     { icon: "❀", name: "Mehendi", date: "Date to be announced", time: "Time to be announced", venue: "Deepak Line Hotel / venue details to confirm", note: "Colour, music, and joyful memories with our loved ones." },
