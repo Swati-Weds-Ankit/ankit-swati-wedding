@@ -247,3 +247,19 @@ p{font-family:"Cormorant Garamond",Georgia,serif}
 @media(prefers-reduced-motion:reduce){
   .ganesha-scene-image,.ganesha-intro.show-ganesha .ganesha-blessing{animation:none!important}
 }
+/* FIX: Reveal the Ganesha blessing after the gates open */
+.gate-scene {
+  background: transparent !important;
+}
+
+.ganesha-intro.show-ganesha .gate-scene {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.ganesha-intro.show-ganesha .ganesha-blessing {
+  z-index: 4;
+  opacity: 1;
+  visibility: visible;
+}
