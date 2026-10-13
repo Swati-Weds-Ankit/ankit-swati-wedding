@@ -57,18 +57,34 @@
   musicToggle.addEventListener("click", async () => {
     if (music.paused) {
       try { await music.play(); musicLabel.textContent = "Pause music"; musicToggle.setAttribute("aria-label", "Pause background music"); }
-      catch { musicLabel.textContent = "Add your MP3"; alert("Add your licensed MP3 to assets/music/replace-with-your-song.mp3, then try again."); }
+      catch { musicLabel.textContent = "Add your MP3"; alert("The music file could not be played. Check that assets/music/wedding-song.mp3.mp3 exists in GitHub and is a valid MP3 file."); }
     } else { music.pause(); musicLabel.textContent = "Play music"; musicToggle.setAttribute("aria-label", "Play background music"); }
   });
 
+  // Share the invitation link through WhatsApp without needing a recipient number.
+  const shareButton = $("#shareInvitation");
+  if (shareButton) {
+    shareButton.addEventListener("click", () => {
+      const url = window.location.href.split("#")[0];
+      const message = `You are warmly invited to the wedding of ${cfg.groom || "Ankit"} & ${cfg.bride || "Swati"} on ${cfg.dateLabel || "25 November 2026"}. Venue: ${cfg.venueName || "Deepak Line Hotel"}, ${cfg.venueAddress || "Jaiprakash Nagar, Muzaffarpur"}. Invitation: ${url}`;
+      window.open("https://wa.me/?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
+    });
+  }
+
+  // RSVP sends the guest's response to the couple's WhatsApp number.
   $("#rsvpForm").addEventListener("submit", event => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.currentTarget).entries());
-    const saved = JSON.parse(localStorage.getItem("weddingDemoRsvps") || "[]");
-    saved.push({...data, submittedAt: new Date().toISOString()});
-    localStorage.setItem("weddingDemoRsvps", JSON.stringify(saved));
-    $("#formNote").textContent = "Thank you, " + data.guestName + "! Your demo response is saved in this browser only. To collect replies from guests online, connect a form service.";
-    event.currentTarget.reset();
+    const phone = String(cfg.whatsappNumber || "").replace(/\D/g, "");
+    if (!phone || phone.includes("XXXXXXXXXX") || phone.length < 10) {
+      $("#formNote").textContent = "Please add your WhatsApp number in config.js (country code + mobile number, digits only), then commit the file.";
+      alert("Please add your WhatsApp number in config.js before using RSVP.");
+      return;
+    }
+    const message = `Wedding RSVP for ${cfg.groom || "Ankit"} & ${cfg.bride || "Swati"}%0AName: ${data.guestName}%0AAttendance: ${data.attendance}%0AMessage: ${data.message || "No message"}`;
+    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message.replace(/%0A/g, "\n"));
+    window.open(url, "_blank", "noopener,noreferrer");
+    $("#formNote").textContent = "WhatsApp opened with your response. Tap Send in WhatsApp to deliver it.";
   });
 
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -76,16 +92,57 @@
   }), {threshold: 0.12});
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
+  // The invitation opens only after a guest taps the cover button.
+  const openButton = $("#openInvitation");
+  const navLinks = document.querySelectorAll('.top-nav a[href^="#"]');
+  function openInvitation(targetSelector = "#invitation") {
+    if (document.body.classList.contains("invitation-closed")) {
+      document.body.classList.remove("invitation-closed");
+      openButton.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "";
+      // Give the page a moment to reveal its sections before scrolling.
+      window.setTimeout(() => {
+        const target = document.querySelector(targetSelector);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    } else {
+      const target = document.querySelector(targetSelector);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+  openButton.addEventListener("click", event => {
+    event.preventDefault();
+    openInvitation("#invitation");
+  });
+  navLinks.forEach(link => link.addEventListener("click", event => {
+    event.preventDefault();
+    openInvitation(link.getAttribute("href"));
+  }));
+  document.body.style.overflow = "hidden";
+
+  // Continuous shower of flower petals and little leaves across the whole page.
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const petalLayer = $(".petals");
-    for (let i = 0; i < 12; i++) {
-      const petal = document.createElement("span");
-      petal.className = "petal";
-      petal.style.left = (Math.random() * 100) + "%";
-      petal.style.setProperty("--drift", ((Math.random() * 180) - 90) + "px");
-      petal.style.animationDuration = (9 + Math.random() * 10) + "s";
-      petal.style.animationDelay = (Math.random() * -15) + "s";
-      petalLayer.appendChild(petal);
+    const flowers = ["✿", "❀", "✽", "❁", "✾"];
+    function makeFallingPiece() {
+      const piece = document.createElement("span");
+      const isLeaf = Math.random() < 0.42;
+      piece.className = "petal " + (isLeaf ? "leaf" : "flower");
+      piece.textContent = isLeaf ? (Math.random() < 0.5 ? "❧" : "🍃") : flowers[Math.floor(Math.random() * flowers.length)];
+      piece.style.left = (Math.random() * 100) + "%";
+      piece.style.setProperty("--drift", ((Math.random() * 240) - 120) + "px");
+      piece.style.fontSize = (12 + Math.random() * 16) + "px";
+      piece.style.animationDuration = (7 + Math.random() * 8) + "s";
+      piece.style.opacity = (0.45 + Math.random() * 0.45).toFixed(2);
+      petalLayer.appendChild(piece);
+      piece.addEventListener("animationend", () => piece.remove(), { once: true });
     }
+    for (let i = 0; i < 36; i++) {
+      makeFallingPiece();
+      // Stagger the first shower so it is already in motion on page load.
+      const piece = petalLayer.lastElementChild;
+      if (piece) piece.style.animationDelay = (-Math.random() * 12) + "s";
+    }
+    window.setInterval(makeFallingPiece, 320);
   }
 })();
