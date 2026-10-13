@@ -378,8 +378,11 @@ footer span[data-name="bride"]::first-letter {
 /* Decorative capital S in Swati throughout the website */
 .bride-initial {
   font-family: "Great Vibes", cursive !important;
+  font-size: 1.15em !important;
   font-weight: 400 !important;
   font-style: normal !important;
   display: inline-block;
   line-height: 1;
+  color: inherit;
+  vertical-align: baseline;
 }
