@@ -8,10 +8,45 @@
   <title>Ankit & Swati — Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="invitation-closed">
+  <div class="ganesha-intro" id="ganeshaIntro" role="dialog" aria-modal="true" aria-label="Wedding invitation welcome">
+    <div class="gate-scene" aria-hidden="true">
+      <div class="gate-door gate-left"><div class="gate-carving"><span>❀</span><b>ॐ</b><span>❦</span></div></div>
+      <div class="gate-door gate-right"><div class="gate-carving"><span>❀</span><b>शुभ</b><span>❦</span></div></div>
+    </div>
+    <div class="ganesha-blessing">
+      <p class="ganesha-mantra">॥ श्री गणेशाय नमः ॥</p>
+      <svg class="ganesha-art" viewBox="0 0 220 240" role="img" aria-label="Decorative Lord Ganesha illustration">
+        <defs><linearGradient id="ganeshaGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".48" stop-color="#d5a34c"/><stop offset="1" stop-color="#9c642b"/></linearGradient></defs>
+        <g fill="none" stroke="url(#ganeshaGold)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M81 48 Q110 10 139 48 L132 63 Q110 52 88 63 Z" fill="#b98037"/>
+          <path d="M97 36 L110 17 L123 36 M110 18 V6"/>
+          <path d="M83 64 Q54 48 40 78 Q30 104 64 119 L82 103" fill="#6e2c38"/>
+          <path d="M137 64 Q166 48 180 78 Q190 104 156 119 L138 103" fill="#6e2c38"/>
+          <path d="M79 64 Q110 48 141 64 Q154 83 145 111 Q137 134 110 139 Q83 134 75 111 Q66 83 79 64 Z" fill="#7f3540"/>
+          <path d="M91 86 Q99 79 105 87 M115 87 Q122 79 130 86"/>
+          <path d="M109 88 Q105 109 119 117 Q132 125 121 143 Q112 156 97 146" stroke-width="7"/>
+          <path d="M82 137 Q67 151 71 176 Q73 193 92 196 L128 196 Q147 193 149 176 Q153 151 138 137" fill="#7f3540"/>
+          <path d="M83 151 Q110 165 137 151 M83 174 Q110 188 137 174"/>
+          <path d="M71 166 Q48 171 45 191 Q63 199 85 186 M149 166 Q172 171 175 191 Q157 199 135 186"/>
+          <path d="M93 196 L85 218 M127 196 L135 218 M73 220 Q110 233 147 220"/>
+          <path d="M58 119 Q39 133 45 149 M162 119 Q181 133 175 149"/>
+          <circle cx="110" cy="73" r="4" fill="#fff0b8" stroke="none"/>
+        </g>
+        <g fill="#e6bd72"><circle cx="31" cy="44" r="3"/><circle cx="188" cy="45" r="3"/><circle cx="22" cy="125" r="2"/><circle cx="198" cy="126" r="2"/><path d="M110 0 l3 7 -3 7 -3 -7z"/></g>
+      </svg>
+      <p class="ganesha-welcome">Blessings for a beautiful beginning</p>
+    </div>
+    <div class="gate-welcome">
+      <p class="gate-kicker">A WEDDING INVITATION</p>
+      <h2>Shubh Aarambh</h2>
+      <p>Begin this celebration with the blessings of Lord Ganesha</p>
+      <button class="gate-open-button" id="openGates" type="button">Open the Sacred Gates <span>✦</span></button><p class="intro-auto-note">Tap to open the gates, receive blessings, and begin the music</p>
+    </div>
+  </div>
   <div class="petals" aria-hidden="true"></div>
   <div class="music-control">
     <button id="musicToggle" class="music-button" aria-label="Play background music" title="Play / pause music">♫ <span id="musicLabel">Play music</span></button>
@@ -20,7 +55,7 @@
 
   <header class="hero" id="home">
     <div class="hero-shade"></div>
-    <nav class="top-nav">
+    <nav class="top-nav" aria-hidden="true">
       <a href="#home" class="monogram">A <span>&</span> S</a>
       <div><a href="#story">Our Story</a><a href="#events">Events</a><a href="#gallery">Gallery</a></div>
     </nav>
