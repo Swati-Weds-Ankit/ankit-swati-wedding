@@ -9,17 +9,53 @@ window.WEDDING_CONFIG = {
   // Countdown is set to the start of 25 November because ceremony time has not been provided yet.
   weddingDate: "2026-11-25T00:00:00+05:30",
   dateLabel: "25 November 2026 · Save the Date",
-  venueName: "Deepak Line Hotel",
-  venueAddress: "Jaiprakash Nagar, Muzaffarpur, Bihar, India",
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=Deepak%20Line%20Hotel%2C%20Jaiprakash%20Nagar%2C%20Muzaffarpur%2C%20Bihar",
+  venueName: "Chandni Chowk",
+  venueAddress: "Beside Pappu Carrying Corporation, Chandni Chowk, Muzaffarpur, Bihar, India",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Chandni%20Chowk%2C%20beside%20Pappu%20Carrying%20Corporation%2C%20Muzaffarpur%2C%20Bihar",
   // IMPORTANT: Replace this with the groom/bride WhatsApp number including country code, digits only.
   // India example format: 91 followed by the 10-digit mobile number. Do not include +, spaces, or dashes.
   whatsappNumber: "917217602570",
   events: [
-    { icon: "✧", name: "Haldi", date: "Date to be announced", time: "Time to be announced", venue: "Deepak Line Hotel / venue details to confirm", note: "A golden morning filled with blessings and laughter." },
-    { icon: "❀", name: "Mehendi", date: "Date to be announced", time: "Time to be announced", venue: "Deepak Line Hotel / venue details to confirm", note: "Colour, music, and joyful memories with our loved ones." },
-    { icon: "♡", name: "Wedding Ceremony", date: "25 November 2026", time: "Time to be announced", venue: "Deepak Line Hotel, Jaiprakash Nagar, Muzaffarpur", note: "The moment our forever begins." },
-    { icon: "✦", name: "Reception", date: "Date to be announced", time: "Time to be announced", venue: "Venue details to confirm", note: "Join us for a night of celebration and togetherness." }
+    {
+      icon: "✧",
+      name: "Rudrabhishek Puja",
+      date: "18 November 2026",
+      time: "10:00 AM onwards",
+      venue: "Chandni Chowk, beside Pappu Carrying Corporation, Muzaffarpur",
+      note: "Begin the wedding celebrations with prayers and blessings."
+    },
+    {
+      icon: "❀",
+      name: "Tilak Ceremony",
+      date: "20 November 2026",
+      time: "05:30 PM onwards",
+      venue: "Jagdamba Nagar, near Patel Sweets, Purani Motihari Road, Muzaffarpur",
+      note: "A joyful family celebration filled with blessings."
+    },
+    {
+      icon: "♡",
+      name: "Haldi Ceremony & Puja Matkor",
+      date: "23 November 2026",
+      time: "",
+      venue: "Chandni Chowk, beside Pappu Carrying Corporation, Muzaffarpur",
+      note: "A day of traditional rituals, colour, and family blessings."
+    },
+    {
+      icon: "✦",
+      name: "Mehendi & Sangeet",
+      date: "24 November 2026",
+      time: "",
+      venue: "Chandni Chowk, beside Pappu Carrying Corporation, Muzaffarpur",
+      note: "An evening of music, mehendi, and happy memories."
+    },
+    {
+      icon: "❋",
+      name: "Wedding Ceremony",
+      date: "25 November 2026",
+      time: "",
+      venue: "Chandni Chowk, beside Pappu Carrying Corporation, Muzaffarpur",
+      note: "Join us as Ankit and Swati begin their forever together."
+    }
   ],
   gallery: [
     { image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85", alt: "Wedding ceremony flowers" },
