@@ -57,11 +57,11 @@ window.WEDDING_CONFIG = {
       note: "Join us as Ankit and Swati begin their forever together."
     }
   ],
-  gallery: [
-  "assets/gallery/actual-filename-1.jpg",
-  "assets/gallery/actual-filename-2.jpg",
-  "assets/gallery/actual-filename-3.jpg",
-  "assets/gallery/actual-filename-4.jpg",
-  "assets/gallery/actual-filename-5.jpg",
-  "assets/gallery/actual-filename-6.jpg"
+gallery: [
+  "assets/gallery/gallery-01-sunset-and-palace-collage.jpg",
+  "assets/gallery/gallery-02-peach-outfit-collage.jpg",
+  "assets/gallery/gallery-03-maroon-outfit.jpg",
+  "assets/gallery/gallery-04-navy-and-pink.jpg",
+  "assets/gallery/gallery-05-cream-and-pink.jpg",
+  "assets/gallery/gallery-06-palace-portrait.jpg"
 ]
