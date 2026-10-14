@@ -446,3 +446,31 @@ footer span[data-name="bride"]::first-letter {
     padding: 18px 14px;
   }
 }
+
+
+/* Family details appear only on the first (hero) page, beneath the couple's names. */
+.hero-content .family-details{
+  width:min(920px, 94%);
+  margin:12px auto 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  color:#fff9ef;
+  text-shadow:0 1px 8px rgba(0,0,0,.5);
+  font-size:clamp(12px, 1.5vw, 16px);
+  line-height:1.45;
+}
+.hero-content .family-detail{
+  padding:10px 14px;
+  border:1px solid rgba(246,206,116,.48);
+  border-radius:12px;
+  background:rgba(35,12,31,.36);
+  backdrop-filter:blur(3px);
+}
+.hero-content .family-detail p{margin:2px 0}
+.hero-content .family-detail strong{color:#f6ce74;letter-spacing:.08em;text-transform:uppercase;font-size:.82em}
+.hero-content .family-address{font-style:italic;color:#fff0d4}
+@media(max-width:520px){
+  .hero-content .family-details{width:100%;grid-template-columns:1fr;gap:8px;margin:10px auto 15px;font-size:12px}
+  .hero-content .family-detail{padding:8px 10px}
+}
