@@ -58,11 +58,10 @@ window.WEDDING_CONFIG = {
     }
   ],
   gallery: [
-    { image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85", alt: "Wedding ceremony flowers" },
-    { image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85", alt: "Wedding couple portrait" },
-    { image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85", alt: "Wedding celebration" },
-    { image: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=85", alt: "Wedding details" },
-    { image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=85", alt: "Wedding reception table" },
-    { image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85", alt: "Romantic wedding flowers" }
-  ]
-};
+  "assets/gallery/actual-filename-1.jpg",
+  "assets/gallery/actual-filename-2.jpg",
+  "assets/gallery/actual-filename-3.jpg",
+  "assets/gallery/actual-filename-4.jpg",
+  "assets/gallery/actual-filename-5.jpg",
+  "assets/gallery/actual-filename-6.jpg"
+]
