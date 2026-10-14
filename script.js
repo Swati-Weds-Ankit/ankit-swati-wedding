@@ -52,7 +52,7 @@
       <h3>${escapeHTML(event.name)}</h3>
       <div class="event-date">${escapeHTML(event.date)}</div>
       <p>${escapeHTML(event.note || "")}</p>
-      <p><strong>${escapeHTML(event.time || "")}</strong></p>
+      ${event.time ? `<p><strong>${escapeHTML(event.time)}</strong></p>` : ""}
       <p class="event-venue">${escapeHTML(event.venue || "")}</p>
     </article>
   `).join("");
