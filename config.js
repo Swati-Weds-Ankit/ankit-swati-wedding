@@ -58,10 +58,28 @@ window.WEDDING_CONFIG = {
     }
   ],
 gallery: [
-  "assets/gallery/gallery-01-sunset-and-palace-collage.jpg",
-  "assets/gallery/gallery-02-peach-outfit-collage.jpg",
-  "assets/gallery/gallery-03-maroon-outfit.jpg",
-  "assets/gallery/gallery-04-navy-and-pink.jpg",
-  "assets/gallery/gallery-05-cream-and-pink.jpg",
-  "assets/gallery/gallery-06-palace-portrait.jpg"
+{
+image: “assets/gallery/gallery-01-sunset-and-palace-collage.jpg”,
+alt: “Ankit and Swati sunset and palace pre-wedding photos”
+},
+{
+image: “assets/gallery/gallery-02-peach-outfit-collage.jpg”,
+alt: “Ankit and Swati in peach outfits”
+},
+{
+image: “assets/gallery/gallery-03-maroon-outfit.jpg”,
+alt: “Ankit and Swati in maroon outfits”
+},
+{
+image: “assets/gallery/gallery-04-navy-and-pink.jpg”,
+alt: “Ankit in navy and Swati in pink”
+},
+{
+image: “assets/gallery/gallery-05-cream-and-pink.jpg”,
+alt: “Ankit and Swati in cream and pink outfits”
+},
+{
+image: “assets/gallery/gallery-06-palace-portrait.jpg”,
+alt: “Ankit and Swati palace portrait”
+}
 ]
