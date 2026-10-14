@@ -421,3 +421,28 @@ footer span[data-name="bride"]::first-letter {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+/* Center the Shubh Aarambh welcome panel on every screen size */
+.gate-welcome {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: min(540px, calc(100vw - 36px)) !important;
+  max-width: calc(100vw - 36px);
+  max-height: calc(100svh - 36px);
+  overflow-y: auto;
+  margin: 0 !important;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+.ganesha-intro.is-opening .gate-welcome {
+  transform: translate(-50%, calc(-50% + 18px));
+}
+@media (max-width: 520px) {
+  .gate-welcome {
+    width: calc(100vw - 36px) !important;
+    padding: 18px 14px;
+  }
+}
