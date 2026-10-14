@@ -472,3 +472,24 @@ footer span[data-name="bride"]::first-letter {
   .names-card { padding: 24px 14px; gap: 6px; }
   .names-card .names-family { font-size: 11px; overflow-wrap: anywhere; }
 }
+
+
+/* Family details also appear on the main opening/hero page. */
+.hero-family-details {
+  max-width: 680px;
+  margin: 0 auto 18px;
+  padding: 0 12px;
+  color: #f1dfca;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(13px, 2vw, 17px);
+  line-height: 1.4;
+  text-align: center;
+  text-shadow: 0 1px 8px rgba(0,0,0,.35);
+}
+.hero-family-details p { margin: 3px 0; }
+.hero-family-details strong { color: #e6c58a; font-weight: 600; }
+.hero-family-details .hero-family-address { color: #e5c99e; font-style: italic; font-size: .95em; }
+.hero-family-details .hero-bride-family { margin-top: 8px; }
+@media (max-width: 520px) {
+  .hero-family-details { font-size: 12px; line-height: 1.35; max-width: 360px; }
+}
